@@ -1,10 +1,10 @@
 import app from "./src/app"
-const PORT = 8080
+import config from "./src/configs/config"
 
-const server = app.listen(PORT, () => {
-    console.log(`Welcome to new ecommerce app with server ${PORT}`)
+const server = app.listen(config.PORT, () => {
+    console.log(`Welcome to new ecommerce app with server ${config.PORT}`)
 })
 
 process.on('SIGINT', () => {
-    server.close(() => console.log(`Exit express server port ${PORT}`))
+    server.close(() => console.log(`Exit express server port ${config.PORT}`))
 })

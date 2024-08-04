@@ -1,7 +1,7 @@
 "use strict";
 import mongoose from "mongoose";
 import { countConnect } from "../helpers/check.connect";
-
+import config from "../configs/config"
 
 class Database {
   constructor() {
@@ -14,7 +14,7 @@ class Database {
       mongoose.set("debug", { color: true });
     }
     mongoose
-      .connect("", {
+      .connect(config.MONGO_URI, {
         maxPoolSize: 50
       })
       .then((_) =>
